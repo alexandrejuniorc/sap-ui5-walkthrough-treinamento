@@ -4,7 +4,8 @@
   xmlns:mvc="sap.ui.core.mvc"
 >
   <!-- <core:Text text="Hello UI5 Again!"></core:Text> -->
-  <core:Button text="Say Hi" press=".onShowHello"></core:Button>
+  <core:Button text="{i18n>showHelloButtonText}" press=".onShowHello"></core:Button>
+
   <core:Input
     value="{/recipient/name}"
     description="Hello {/recipient/name}"
