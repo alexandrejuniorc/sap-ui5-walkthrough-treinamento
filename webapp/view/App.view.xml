@@ -5,39 +5,35 @@
   displayBlock="true"
 >
   <core:Shell>
-    <core:App>
-
+    <core:App class="myAppDemoWT">
       <core:pages>
         <core:Page title="{i18n>homePageTitle}">
-
           <core:content>
             <core:Panel
               headerText="{i18n>helloPanelTitle}"
               class="sapUiResponsiveMargin"
               width="auto">
               <core:content>
+
                 <core:Button
                   text="{i18n>showHelloButtonText}"
                   press=".onShowHello"
-                  class="sapUiSmallMarginEnd">
-                </core:Button>
+                  class="MyCustomButton" />
 
                 <core:Input
                   value="{/recipient/name}"
                   description="Hello {/recipient/name}"
                   valueLiveUpdate="true"
-                  width="60%">
-                </core:Input>
-                <core:Text
-                  text="Hello {/recipient/name}"
-                  class="sapUiSmallMargin"></core:Text>
+                  width="60%" />
+
+                <core:FormattedText
+                  htmlText="Hello {/recipient/name}"
+                  class="sapUiSmallMargin sapThemeHighlight-asColor myCustomText" />
               </core:content>
             </core:Panel>
           </core:content>
-
         </core:Page>
       </core:pages>
-
     </core:App>
   </core:Shell>
 </mvc:View>
