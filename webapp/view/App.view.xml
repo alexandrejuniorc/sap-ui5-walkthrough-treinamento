@@ -2,14 +2,31 @@
   controllerName="sap.ui.demo/walkthrough.controller.App"
   xmlns:core="sap.m"
   xmlns:mvc="sap.ui.core.mvc"
+  displayBlock="true"
 >
   <!-- <core:Text text="Hello UI5 Again!"></core:Text> -->
-  <core:Button text="{i18n>showHelloButtonText}" press=".onShowHello"></core:Button>
 
-  <core:Input
-    value="{/recipient/name}"
-    description="Hello {/recipient/name}"
-    valueLiveUpdate="true"
-    width="60%">
-  </core:Input>
+
+  <core:App>
+    <core:pages>
+      <core:Page title="{i18n>homePageTitle}">
+        <core:content>
+          <core:Panel headerText="{i18n>helloPanelTitle}">
+            <core:content>
+              <core:Button text="{i18n>showHelloButtonText}" press=".onShowHello"></core:Button>
+
+              <core:Input
+                value="{/recipient/name}"
+                description="Hello {/recipient/name}"
+                valueLiveUpdate="true"
+                width="60%">
+              </core:Input>
+            </core:content>
+          </core:Panel>
+        </core:content>
+      </core:Page>
+    </core:pages>
+  </core:App>
+
+
 </mvc:View>
