@@ -7,6 +7,8 @@
     class="sapUiResponsiveMargin"
     width="auto">
     <core:content>
+      <core:Button id="helloDialogButton" text="{i18n>openDialogButtonText}" press=".onOpenDialog"
+        class="sapUiSmallMarginEnd" />
 
       <core:Button
         text="{i18n>showHelloButtonText}"
