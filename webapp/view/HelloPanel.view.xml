@@ -7,7 +7,11 @@
     class="sapUiResponsiveMargin"
     width="auto">
     <core:content>
-      <core:Button id="helloDialogButton" text="{i18n>openDialogButtonText}" press=".onOpenDialog"
+      <core:Button 
+        id="helloDialogButton" 
+        icon="sap-icon://world"
+        text="{i18n>openDialogButtonText}" 
+        press=".onOpenDialog"
         class="sapUiSmallMarginEnd" />
 
       <core:Button
