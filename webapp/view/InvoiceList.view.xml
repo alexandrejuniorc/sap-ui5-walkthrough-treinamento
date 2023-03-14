@@ -2,7 +2,6 @@
   controllerName="sap.ui.demo.walkthrough.controller.InvoiceList"
   xmlns="sap.m"
   xmlns:mvc="sap.ui.core.mvc">
-
   <List
     headerText="{i18n>invoiceListTitle}"
     class="sapUiResponsiveMargin"
@@ -18,8 +17,17 @@
             showMeasure: false
           }}"
         numberUnit="{view>/currency}"
-        numberState="{= ${invoice>ExtendedPrice} > 50 ? 'Error' : 'Success'}" />
+        numberState="{= ${invoice>ExtendedPrice} > 50 ? 'Error' : 'Success'}">
+
+        <firstStatus>
+          <ObjectStatus
+            text="{
+        path: 'invoice>Status',
+        formatter: '.formatter.statusText'
+      }" />
+        </firstStatus>
+
+      </ObjectListItem>
     </items>
   </List>
-
 </mvc:View>
