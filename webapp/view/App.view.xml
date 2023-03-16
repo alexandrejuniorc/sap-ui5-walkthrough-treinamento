@@ -5,18 +5,6 @@
   displayBlock="true"
 >
   <core:Shell>
-    <core:App class="myAppDemoWT">
-      <core:pages>
-        <core:Page title="{i18n>homePageTitle}">
-          <core:headerContent>
-            <core:Button icon="sap-icon://hello-world" press=".onOpenDialog"/>
-          </core:headerContent>
-          <core:content>
-            <mvc:XMLView viewName="sap.ui.demo.walkthrough.view.HelloPanel" />
-            <mvc:XMLView viewName="sap.ui.demo.walkthrough.view.InvoiceList" />
-          </core:content>
-        </core:Page>
-      </core:pages>
-    </core:App>
+    <core:App class="myAppDemoWT" id="app"/>
   </core:Shell>
 </mvc:View>
