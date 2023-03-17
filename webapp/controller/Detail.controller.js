@@ -4,7 +4,7 @@ sap.ui.define(
     "sap/ui/core/UIComponent",
     "sap/ui/core/routing/History",
     "sap/m/MessageToast",
-    "sap/ui/model/json/JSONModel"
+    "sap/ui/model/json/JSONModel",
   ],
   function (Controller, UIComponent, History, MessageToast, JSONModel) {
     "use strict";
@@ -22,7 +22,7 @@ sap.ui.define(
           .attachPatternMatched(this._onObjectMatched, this);
       },
       _onObjectMatched: function (oEvent) {
-        // this.byId("rating").reset();
+        this.byId("rating").reset();
         this.getView().bindElement({
           path:
             "/" +
@@ -37,11 +37,21 @@ sap.ui.define(
         var sPreviousHash = oHistory.getPreviousHash();
 
         if (sPreviousHash !== undefined) {
-            window.history.go(-1)
+          window.history.go(-1);
         } else {
-            var oRouter = UIComponent.getRouterFor(this);
-            oRouter.navTo("overview", {}, true)
+          var oRouter = UIComponent.getRouterFor(this);
+          oRouter.navTo("overview", {}, true);
         }
+      },
+      onRatingChange: function () {
+        var fValue = oEvent.getParameter("value");
+        var oResourceBundle = this.getView()
+          .getModel("i18n")
+          .getResourceBundle();
+
+        MessageToast.show(
+          oResourceBundle.getText("ratingConfirmation", [fValue])
+        );
       },
     });
   }
