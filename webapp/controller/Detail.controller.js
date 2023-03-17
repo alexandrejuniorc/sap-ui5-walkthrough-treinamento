@@ -1,6 +1,12 @@
 sap.ui.define(
-  ["sap/ui/core/mvc/Controller", "sap/ui/core/UIComponent", "sap/ui/model/json/JSONModel"],
-  function (Controller, JSONModel, UIComponent) {
+  [
+    "sap/ui/core/mvc/Controller",
+    "sap/ui/core/UIComponent",
+    "sap/ui/core/routing/History",
+    "sap/m/MessageToast",
+    "sap/ui/model/json/JSONModel"
+  ],
+  function (Controller, UIComponent, History, MessageToast, JSONModel) {
     "use strict";
 
     return Controller.extend("sap.ui.demo.walkthrough.controller.Detail", {
@@ -18,9 +24,24 @@ sap.ui.define(
       _onObjectMatched: function (oEvent) {
         // this.byId("rating").reset();
         this.getView().bindElement({
-            path: "/" + window.decodeURIComponent(oEvent.getParameter("arguments").invoicePath),
-            model: "invoice"
-        })
+          path:
+            "/" +
+            window.decodeURIComponent(
+              oEvent.getParameter("arguments").invoicePath
+            ),
+          model: "invoice",
+        });
+      },
+      onNavBack: function () {
+        var oHistory = History.getInstance();
+        var sPreviousHash = oHistory.getPreviousHash();
+
+        if (sPreviousHash !== undefined) {
+            window.history.go(-1)
+        } else {
+            var oRouter = UIComponent.getRouterFor(this);
+            oRouter.navTo("overview", {}, true)
+        }
       },
     });
   }
