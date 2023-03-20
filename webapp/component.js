@@ -42,6 +42,18 @@ sap.ui.define(
         this._helloDialog.destroy()
         delete this._helloDialog
       },
+      
+      getContentDensityClass: function () {
+        if(!this._sContentDensityClass){
+          if(!Device.support.touch){
+            this._sContentDensityClass = "sapUiSizeCompact"
+          } else {
+            this._sContentDensityClass = "sapUiSizeCozy"
+          }
+        }
+        return this._sContentDensityClass
+      },
+
       openHelloDialog: function () {
         this._helloDialog.open()
       }
